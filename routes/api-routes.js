@@ -26,4 +26,15 @@ router.post("/book", (req, res) => {
     });
 });
 
+router.delete("/books/:id", (req, res) => {
+  const deleteBook = req.params.id;
+  db.Book.deleteOne({ _id: deleteBook })
+    .then((dbBook) => {
+      console.log(deleteBook), res.json(dbBook);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 module.exports = router;
