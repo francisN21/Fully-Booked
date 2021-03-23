@@ -16,12 +16,15 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api", require("./routes/api-routes"));
 
 // for mongoose
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-});
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/fully-booked",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
 
 app.listen(PORT, () =>
   console.log(`Server listening on: http://localhost:${PORT}`)
