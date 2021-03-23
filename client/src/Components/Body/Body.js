@@ -3,7 +3,7 @@ import "./Body.css";
 
 const Body = () => {
   return (
-    <div className="content-container">
+    <div className="container">
       <h1>Hello</h1>
     </div>
   );
