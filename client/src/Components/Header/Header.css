@@ -1,0 +1,17 @@
+.nav-container {
+    color: white;
+    background-color: #343A40;
+    padding-top: 5px;
+
+    position: fixed !important;
+    align-items: center;
+    top: 0px;
+
+
+    width: 100%;
+}
+
+.header-content {
+    margin-left: 2%;
+    align-items: center;
+}
