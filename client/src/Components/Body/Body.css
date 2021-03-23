@@ -1,0 +1,10 @@
+div.search-container {
+    color: white;
+    border-radius: 10px;
+    background-color: #343A40;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+    position: relative;
+    width: auto;
+}

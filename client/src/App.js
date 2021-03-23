@@ -24,10 +24,15 @@ function App() {
         <Header />
       </div>
 
-      <div className="content-container">
-        <button className="btn btn-primary" onClick={() => setView(!toggle)}>
-          {formButton}
-        </button>
+      <div className="container content-container">
+        <div className="row">
+          <div className="container col-md-12">
+            <button className="search-toggle" onClick={() => setView(!toggle)}>
+              {formButton}
+            </button>
+          </div>
+        </div>
+
         {toggle ? <Body /> : <Saved />}
       </div>
     </div>
