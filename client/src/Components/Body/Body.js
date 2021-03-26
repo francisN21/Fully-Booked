@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 import "./Body.css";
+import axios from "axios";
 
 const Body = () => {
   const [userInput, setInput] = useState({
@@ -28,6 +29,22 @@ const Body = () => {
       });
     } catch (error) {}
   };
+
+  const save = async (query) => {
+    let book = {
+      title: query.volumeInfo.title,
+      authors: query.volumeInfo.authors,
+      description: query.volumeInfo.description,
+      image: query.volumeInfo.imageLinks.smallThumbnail,
+      link: query.volumeInfo.previewLink,
+    };
+    try {
+      console.log(book);
+      await axios.post(`/api/book`, book);
+      // .then((response) => console.log(response));
+    } catch (error) {}
+  };
+
   return (
     <div className="container">
       <div className="row search-container">
@@ -54,7 +71,12 @@ const Body = () => {
                   <h3>{book.volumeInfo.title}</h3>
                 </div>
                 <div className="col-md-2">
-                  <button className="btn btn-outline-danger">Save Book</button>
+                  <button
+                    className="btn btn-outline-danger"
+                    onClick={() => save(book)}
+                  >
+                    Save Book
+                  </button>
                 </div>
               </div>
             </div>
