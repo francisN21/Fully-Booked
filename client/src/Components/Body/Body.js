@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import API from "../utils/API";
 import "./Body.css";
 import axios from "axios";
@@ -7,6 +9,7 @@ const Body = () => {
   const [userInput, setInput] = useState({
     search: "",
   });
+  const notify = (query) => toast(`${query} saved!`);
 
   const [books, setBooks] = useState([]);
 
@@ -41,12 +44,14 @@ const Body = () => {
     try {
       console.log(book);
       await axios.post(`/api/book`, book);
+      notify(query.volumeInfo.title);
       // .then((response) => console.log(response));
     } catch (error) {}
   };
 
   return (
     <div className="container">
+      <ToastContainer />
       <div className="row search-container">
         <div className="col-md-12 ">
           <h1>Search a book!</h1>
